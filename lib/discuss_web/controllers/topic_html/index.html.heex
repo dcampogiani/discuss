@@ -15,10 +15,10 @@ Listing Topics
     </div>
 </:action>
 <:action :let={topic}>
+    <%= if @conn.assigns.user && @conn.assigns.user.id == topic.user_id do %>
     <.link navigate={~p"/topics/#{topic}/edit"}>Edit</.link>
-    <.link href={~p"/topics/#{topic}"} method="delete" data-confirm="Are you sure?">
-Delete
-</.link>
+    <.link href={~p"/topics/#{topic}"} method="delete" data-confirm="Are you sure?">Delete</.link>
+    <% end %>
 </:action>
 </.table>
 <%!-- <.div>
